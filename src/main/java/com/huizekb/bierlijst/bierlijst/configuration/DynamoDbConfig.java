@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Configuration;
 
 @RequiredArgsConstructor
 @Configuration
-@EnableDynamoDBRepositories(basePackages = "com.sample.microservice.awsdynamodb.repository")
+@EnableDynamoDBRepositories(basePackages = "com.huizekb.bierlijst.bierlijst.repository")
 public class DynamoDbConfig {
 
     @Value("${accesskey}")
