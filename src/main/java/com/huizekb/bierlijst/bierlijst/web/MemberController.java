@@ -25,6 +25,12 @@ public class MemberController {
 
     }
 
+    @GetMapping(value = "/test")
+    public List<Member> allq() {
+        return memberService.getAll();
+
+    }
+
     @PostMapping()
     public Member save(@RequestBody Member member) {
         return memberService.create(member);
