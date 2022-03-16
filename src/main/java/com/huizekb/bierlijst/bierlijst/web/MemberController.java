@@ -4,6 +4,7 @@ package com.huizekb.bierlijst.bierlijst.web;
 import com.huizekb.bierlijst.bierlijst.domain.Member;
 import com.huizekb.bierlijst.bierlijst.exception.DataNotFoundException;
 import com.huizekb.bierlijst.bierlijst.service.MemberService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +19,18 @@ public class MemberController {
         this.memberService = memberService;
     }
 
+    @Value("${accesskey}")
+    private String accessKey;
+
+
+    @Value("${secretkey}")
+    private String secretKey;
+
+    @Value("${region}")
+    private String region;
+
+    @Value("${endpoint}")
+    private String endpoint;
 
     @GetMapping()
     public List<Member> all() {
@@ -26,8 +39,8 @@ public class MemberController {
     }
 
     @GetMapping(value = "/test")
-    public List<Member> allq() {
-        return memberService.getAll();
+    public String allq() {
+        return accessKey+" "+secretKey+" "+ region+" "+endpoint;
 
     }
 
