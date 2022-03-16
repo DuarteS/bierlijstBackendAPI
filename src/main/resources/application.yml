@@ -2,3 +2,5 @@ spring:
   application:
     name: duarte
 
+server:
+  port : 5000
